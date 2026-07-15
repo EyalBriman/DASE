@@ -22,6 +22,15 @@ import numpy as np
 import pandas as pd
 import pulp
 import streamlit as st
+st.set_page_config(
+    page_title="DASE Allocation Demo",
+    layout="wide",
+    menu_items={
+        "Get help": None,
+        "Report a Bug": None,
+        "About": None,
+    },
+)
 
 
 NUMERIC_TOL = 1e-8
