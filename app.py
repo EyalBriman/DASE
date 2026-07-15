@@ -22,15 +22,6 @@ import numpy as np
 import pandas as pd
 import pulp
 import streamlit as st
-st.set_page_config(
-    page_title="DASE Allocation Demo",
-    layout="wide",
-    menu_items={
-        "Get help": None,
-        "Report a Bug": None,
-        "About": None,
-    },
-)
 
 
 NUMERIC_TOL = 1e-8
@@ -491,10 +482,14 @@ def show_outcome(
 
 def main() -> None:
     st.set_page_config(
-        page_title="DASE",
-        page_icon="⚖️",
+        page_title="DASE Allocation Demo",
         layout="wide",
         initial_sidebar_state="collapsed",
+        menu_items={
+            "Get help": None,
+            "Report a Bug": None,
+            "About": None,
+        },
     )
 
     st.title("DASE")
@@ -565,8 +560,13 @@ Enter a finite-storage instance below.
                     demands,
                 )
 
-        except Exception as exc:  # Streamlit should show a readable error, not a stack trace.
+        except ValueError as exc:
             st.error(str(exc))
+        except Exception:
+            st.error(
+                "The computation could not be completed. Please verify the input "
+                "and try again."
+            )
 
 
 if __name__ == "__main__":

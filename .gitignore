@@ -1,6 +1,5 @@
 # Python
-
-**pycache**/
+__pycache__/
 *.py[cod]
 *.pyo
 *.pyd
@@ -13,19 +12,16 @@ venv/
 ENV/
 env/
 
-# Streamlit
-
+# Streamlit secrets only; keep .streamlit/config.toml tracked
 .streamlit/secrets.toml
 
 # OS / IDE
-
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 
 # Data / outputs
-
 *.xlsx
 *.csv
 *.log
